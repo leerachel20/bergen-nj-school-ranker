@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergen County School Ranker</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PapaParse for CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .toggle-container input {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .slider-group.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .slider-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container" style="max-width: 900px;">
+        <header>
+            <h1><i class="fa-solid fa-school"></i> Advanced School Ranker</h1>
+            <p>Find the best Bergen County High Schools based on 10 powerful metrics. Toggle metrics on/off to customize your algorithm.</p>
+        </header>
+
+        <main>
+            <!-- File Upload Section -->
+            <section class="glass-panel upload-section">
+                <h2>1. Load Your Data</h2>
+                <div class="file-inputs">
+                    <div class="file-group">
+                        <label for="csv-upload" class="file-btn">
+                            <i class="fa-solid fa-file-csv"></i> Select Merged Data File
+                        </label>
+                        <input type="file" id="csv-upload" accept=".csv">
+                        <span id="csv-status" class="status-indicator"><i class="fa-solid fa-xmark"></i> Waiting</span>
+                    </div>
+                </div>
+                <p class="slider-desc" style="margin-top: 10px;">Please upload the <strong>Merged_Bergen_Schools_V3.csv</strong> file.</p>
+            </section>
+
+            <!-- Priority Sliders -->
+            <section class="glass-panel priority-section">
+                <h2>2. Set Your Priorities</h2>
+                <p class="subtitle">Check the box to include a metric in the calculation, and assign it a weight (0-10).</p>
+                
+                <div class="sliders-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    
+                    <!-- SAT Slider -->
+                    <div class="slider-group" id="group-sat">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-sat" checked> Include</label>
+                            <span class="weight-value" id="val-sat">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-book-open-reader"></i> High SAT Scores</label>
+                        </div>
+                        <input type="range" id="weight-sat" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize higher average composite SAT scores.</p>
+                    </div>
+
+                    <!-- DEI / Political Slider -->
+                    <div class="slider-group" id="group-pol">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-pol" checked> Include</label>
+                            <span class="weight-value" id="val-pol">0</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-users-viewfinder"></i> DEI Inclusivity</label>
+                        </div>
+                        <input type="range" id="weight-pol" min="-10" max="10" value="0">
+                        <p class="slider-desc">Slide left (negative) to prioritize lower DEI. Slide right (positive) to prioritize higher DEI.</p>
+                    </div>
+
+                    <!-- Graduation Rate Slider -->
+                    <div class="slider-group" id="group-grad">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-grad" checked> Include</label>
+                            <span class="weight-value" id="val-grad">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-graduation-cap"></i> High Graduation Rate</label>
+                        </div>
+                        <input type="range" id="weight-grad" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize higher 4-year graduation rates.</p>
+                    </div>
+
+                    <!-- AP/IB Rate Slider -->
+                    <div class="slider-group" id="group-ap">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-ap" checked> Include</label>
+                            <span class="weight-value" id="val-ap">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-brain"></i> High AP/IB Participation</label>
+                        </div>
+                        <input type="range" id="weight-ap" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize schools with more students taking AP/IB courses.</p>
+                    </div>
+
+                    <!-- Arts Rate Slider -->
+                    <div class="slider-group" id="group-art">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-art" checked> Include</label>
+                            <span class="weight-value" id="val-art">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-palette"></i> Strong Arts Program</label>
+                        </div>
+                        <input type="range" id="weight-art" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize schools with higher participation in visual/performing arts.</p>
+                    </div>
+
+                    <!-- Student/Teacher Ratio Slider -->
+                    <div class="slider-group" id="group-ratio">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-ratio" checked> Include</label>
+                            <span class="weight-value" id="val-ratio">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-users"></i> Small Class Sizes</label>
+                        </div>
+                        <input type="range" id="weight-ratio" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize schools with a lower student-to-teacher ratio.</p>
+                    </div>
+
+                    <!-- Teacher Experience Slider -->
+                    <div class="slider-group" id="group-exp">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-exp" checked> Include</label>
+                            <span class="weight-value" id="val-exp">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-chalkboard-user"></i> Highly Experienced Teachers</label>
+                        </div>
+                        <input type="range" id="weight-exp" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize schools with higher average teacher experience (years).</p>
+                    </div>
+
+                    <!-- Incident Rate Slider -->
+                    <div class="slider-group" id="group-inc">
+                        <div class="slider-header-top">
+                            <label class="toggle-container"><input type="checkbox" id="check-inc" checked> Include</label>
+                            <span class="weight-value" id="val-inc">5</span>
+                        </div>
+                        <div class="slider-header">
+                            <label><i class="fa-solid fa-shield-halved"></i> Low Incident Rates</label>
+                        </div>
+                        <input type="range" id="weight-inc" min="0" max="10" value="5">
+                        <p class="slider-desc">Prioritize schools with fewer disciplinary incidents per 100 students.</p>
+                    </div>
+
+                </div>
+                
+                <button id="calculate-btn" class="primary-btn" disabled style="margin-top: 30px; width: 100%;">Calculate Top 5 Ranking</button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="glass-panel results-section hidden" id="results-container">
+                <h2><i class="fa-solid fa-trophy"></i> Top 5 High Schools</h2>
+                <div id="rankings-list" class="rankings-list">
+                    <!-- Results injected via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
