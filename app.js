@@ -10,9 +10,6 @@ const excludedSchools = [
     "Bergen Arts and Sciences Charter School"
 ];
 
-// DOM Elements
-const csvInput = document.getElementById('csv-upload');
-const csvStatus = document.getElementById('csv-status');
 const calcBtn = document.getElementById('calculate-btn');
 const resultsContainer = document.getElementById('results-container');
 const rankingsList = document.getElementById('rankings-list');
@@ -51,41 +48,37 @@ metrics.forEach(m => {
     });
 });
 
-// 1. Parse Consolidated CSV File
-csvInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    Papa.parse(file, {
-        header: true,
-        skipEmptyLines: true,
-        complete: function(results) {
-            combinedData = results.data.map(row => {
-                return {
-                    School: row['SchoolName'],
-                    TownsText: row['TownsText'],
-                    AvgDemPct: parseFloat(row['AvgDemPct']) || 0,
-                    GradRate: parseFloat(row['GradRate']) || 0,
-                    Absenteeism: parseFloat(row['Absenteeism']) || 0,
-                    SatScore: parseFloat(row['SatScore']) || 0,
-                    CollegeRate: parseFloat(row['CollegeRate']) || 0,
-                    APRate: parseFloat(row['APRate']) || 0,
-                    ArtsRate: parseFloat(row['ArtsRate']) || 0,
-                    StudentTeacherRatio: parseFloat(row['StudentTeacherRatio']) || 0,
-                    TeacherExp: parseFloat(row['TeacherExp']) || 0,
-                    IncidentRate: parseFloat(row['IncidentRate']) || 0
-                };
-            }).filter(item => item.School && item.TownsText && !excludedSchools.includes(item.School));
-            
-            csvStatus.innerHTML = '<i class="fa-solid fa-check"></i> Loaded (' + combinedData.length + ' schools)';
-            csvStatus.classList.add('ready');
-            calcBtn.disabled = false;
-        },
-        error: function(err) {
-            console.error(err);
-            csvStatus.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Error parsing';
-        }
-    });
+// 1. Auto-Parse Consolidated CSV File on Load
+Papa.parse('Merged_Bergen_Schools_V4.csv', {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+        combinedData = results.data.map(row => {
+            return {
+                School: row['SchoolName'],
+                TownsText: row['TownsText'],
+                AvgDemPct: parseFloat(row['AvgDemPct']) || 0,
+                GradRate: parseFloat(row['GradRate']) || 0,
+                Absenteeism: parseFloat(row['Absenteeism']) || 0,
+                SatScore: parseFloat(row['SatScore']) || 0,
+                CollegeRate: parseFloat(row['CollegeRate']) || 0,
+                APRate: parseFloat(row['APRate']) || 0,
+                ArtsRate: parseFloat(row['ArtsRate']) || 0,
+                StudentTeacherRatio: parseFloat(row['StudentTeacherRatio']) || 0,
+                TeacherExp: parseFloat(row['TeacherExp']) || 0,
+                IncidentRate: parseFloat(row['IncidentRate']) || 0
+            };
+        }).filter(item => item.School && item.TownsText && !excludedSchools.includes(item.School));
+        
+        calcBtn.disabled = false;
+        
+        // Auto calculate on load so user sees results immediately
+        calculateRanking();
+    },
+    error: function(err) {
+        console.error("Error loading CSV:", err);
+    }
 });
 
 // 2. Calculate Weighted Sum Model (WSM)
