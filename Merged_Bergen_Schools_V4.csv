@@ -1,0 +1,51 @@
+SchoolName,TownsText,AvgDemPct,GradRate,Absenteeism,SatScore,CollegeRate,APRate,ArtsRate,StudentTeacherRatio,TeacherExp,IncidentRate
+Bergen County Academies,Bergenfield (3.19%),65,99,0,746,0,99.6,73.4,12,17.2,0.36
+Bergen County Technical High School - Teterboro,Teterboro (1.25%),47,99.4,0,687,0,91,49.5,10,15,0.74
+Tenafly High School,"Tenafly (2.45%), Alpine (0.81%)",64.5,98.7,0,658,0,66.9,46.7,10,15.4,0.35
+Northern Highlands Regional High School,"Allendale (2.15%), Ho-Ho-Kus (1.95%), Upper Saddle River (2.15%), Saddle River (0.95%)",47.5,99.1,0,646,0,60.8,50.6,11,14.2,1.03
+Northern Valley Regional High School at Demarest,"Demarest (2.50%), Haworth (2.75%), Closter (2.11%)",59,98.4,0,644,0,77.6,41.5,10,16.6,4.2
+Ridgewood High School,Ridgewood (2.45%),67,97.6,0,633,0,56.1,52.8,12,14.6,1.5
+Bergen County Institute for Science and Technology,Bergenfield (3.19%),65,91.7,0,622,0,71.6,75.3,78,11.3,2.55
+Cresskill High School,Cresskill (2.45%),57,97.1,0,621,0,64.8,67.6,8,13,0.42
+Northern Valley Regional High School at Old Tappan,"Old Tappan (2.05%), Rockleigh (0.85%), Norwood (2.12%), Harrington Park (2.62%)",49.5,98.9,0,606,0,67.8,53.3,10,16.2,0.93
+Pascack Hills High School,"Woodcliff Lake (2.25%), Montvale (2.25%)",53,98.5,0,602,0,50.4,40.2,9,18,1.7
+Leonia High School,"Leonia (2.98%), Edgewater (1.70%)",70,93,0,597,0,64,56.2,11,11.1,1.71
+Park Ridge High School,Park Ridge (2.55%),48,97.7,0,594,0,44.2,47.3,8,13.7,1.92
+Fair Lawn High School,Fair Lawn (3.01%),60,95.8,0,592,0,34.3,47.1,13,14,5.4
+Mahwah High School,Mahwah (1.62%),51,95.3,0,591,0,44.4,59.6,9,13.2,2.41
+Glen Rock High School,Glen Rock (2.85%),68,97.8,0,590,0,68.3,82.6,10,14,0.95
+River Dell Regional High School,"River Edge (2.95%), River Vale (2.45%), Saddle River (0.95%), Upper Saddle River (2.15%)",49,96.9,0,586,0,42.1,40.6,11,16.4,1.4
+Applied Technology High School,Bergenfield (3.19%),65,93.5,0,580,0,4,29.2,18,8.8,0.63
+Ramsey High School,Ramsey (2.40%),53,97.4,0,580,0,69.1,54.6,9,16.5,1.18
+Palisades Park Jr-Sr High School,Palisades Park (1.50%),58,86.9,0,575,0,33.6,96.4,14,12.9,0.13
+Paramus High School,Paramus (1.80%),49,94.7,0,575,0,46.3,60.4,10,15.2,1.75
+Ramapo High School,"Franklin Lakes (1.55%), Wyckoff (1.85%)",44.5,97.3,0,575,0,59.5,55.3,10,10.2,1.77
+Fort Lee High School,Fort Lee (2.16%),67,94.8,0,570,0,51,64.3,14,12,2.57
+Ridgefield Memorial High School,Ridgefield (2.15%),52,95.2,0,562,0,18.2,81.5,11,18.2,6.73
+Indian Hills High School,Oakland (2.65%),47,97.6,0,561,0,44.6,56.1,8,10.9,1.02
+Pascack Valley High School,"Hillsdale (2.68%), River Vale (2.45%)",49,97.4,0,560,0,42.7,41.1,10,17.2,1.9
+Dwight Morrow High School/Academies@Englewood,Englewood (2.72%),82,88.2,0,558,0,35.7,67.5,13,10.7,7.57
+Rutherford High School,Rutherford (2.75%),59,97.4,0,554,0,47.7,62.2,10,16.7,2.21
+Emerson Jr Sr High,Emerson (2.65%),48,96,0,549,0,66.9,100,9,11.9,2.24
+Saddle Brook Middle/High School,Saddle Brook (2.45%),47,94.4,0,549,0,23.7,82,12,12,2.89
+Dumont High School,Dumont (3.42%),56,98,0,545,0,42.4,35,12,12.7,3.78
+New Milford High School,New Milford (3.25%),57,94.5,0,542,0,33.5,60.5,12,14.5,1.73
+Hasbrouck Heights High School,Hasbrouck Heights (2.69%),47,97.9,0,541,0,22.9,56.6,11,14.7,2.93
+Waldwick High School,Waldwick (2.65%),48,94.4,0,539,0,37.1,35.3,9,14.4,0.47
+Wallington Junior Senior High School,Wallington (2.55%),42,90.4,0,533,0,40.7,47.2,13,10.4,2.97
+Midland Park Jr./Sr. High School,Midland Park (2.55%),44,97.9,0,531,0,44.7,100,7,14.7,2.84
+Cliffside Park High School,Cliffside Park (2.14%),58,91.1,0,530,0,19.3,64.8,13,11.5,1.33
+Westwood Regional High School,Westwood (2.75%),54,97.5,0,519,0,44.5,71.5,10,13.3,2.28
+Wood-Ridge Jr/Sr High School,Wood-Ridge (2.75%),49,86,0,515,0,23,98.3,11,11,2.11
+Hackensack High School,"Hackensack (3.05%), Maywood (2.79%), South Hackensack (2.25%), Rochelle Park (2.35%)",54.8,88.7,0,511,0,25.7,27.8,12,13.5,2.54
+Lyndhurst High School,Lyndhurst (2.30%),46,96.7,0,511,0,63.5,67.7,13,6.3,1.45
+Memorial Senior High School,Elmwood Park (2.92%),52,86.4,0,503,0,11.5,47.1,16,6.3,2.5
+Garfield High School,Garfield (2.85%),52,90.9,0,499,0,20.4,56.5,12,13.8,4.86
+Teaneck High School,Teaneck (3.15%),82,90.8,0,499,0,39.8,52.2,11,13.7,4.28
+North Arlington High School,North Arlington (2.75%),44,92.5,0,498,0,29.2,51.2,13,13.2,3.46
+Bergen Arts and Sciences Charter School,Bergenfield (3.19%),65,98.9,0,497,0,50.8,100,14,7.9,2.76
+Bogota Jr./Sr. High School,Bogota (3.52%),58,93.8,0,496,0,15.5,98,12,10.4,3.64
+Ridgefield Park Jr Sr High School,"Ridgefield (2.15%), Ridgefield Park (3.10%)",55.5,94.4,0,496,0,24.6,41.5,13,13.8,4.15
+Lodi High School,Lodi (2.95%),51,91.9,0,492,0,27.5,32.8,14,7.1,3.07
+Bergenfield High School,Bergenfield (3.19%),65,97.6,0,488,0,54.6,59.4,11,13.5,1.43
+Henry P. Becton Regional High School,"Carlstadt (1.83%), East Rutherford (1.85%), Maywood (2.79%)",50.7,89.9,0,484,0,29.7,35.5,13,11.1,0.36
