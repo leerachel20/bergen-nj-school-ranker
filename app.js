@@ -183,18 +183,15 @@ function renderResults() {
                 <div class="school-score">${item.FinalScore} <span style="font-size:0.8rem; color:#94a3b8">Score</span></div>
             </div>
             <div style="font-size:0.95rem; color:#cbd5e1; margin-bottom:10px;">
-                <i class="fa-solid fa-map-location-dot"></i> Towns: <span style="color:#94a3b8">${cleanTowns}</span>
+                <i class="fa-solid fa-map-location-dot"></i> Towns (Property Tax %): <span style="color:#94a3b8">${cleanTowns}</span>
             </div>
             <div class="details-grid">
                 <div><i class="fa-solid fa-book-open-reader"></i> <strong>SAT:</strong> ${item.SatScore > 0 ? item.SatScore : "N/A"}</div>
-                <div><i class="fa-solid fa-hands-holding-circle"></i> <strong>DEI:</strong> ${item.AvgDemPct}%</div>
-                <div><i class="fa-solid fa-university"></i> <strong>College:</strong> ${item.CollegeRate}%</div>
                 <div><i class="fa-solid fa-brain"></i> <strong>AP/IB:</strong> ${item.APRate}%</div>
                 <div><i class="fa-solid fa-palette"></i> <strong>Arts:</strong> ${item.ArtsRate}%</div>
                 <div><i class="fa-solid fa-graduation-cap"></i> <strong>Grad:</strong> ${item.GradRate}%</div>
                 <div><i class="fa-solid fa-users"></i> <strong>Ratio:</strong> ${item.StudentTeacherRatio}:1</div>
                 <div><i class="fa-solid fa-chalkboard-user"></i> <strong>Exp:</strong> ${item.TeacherExp} Yrs</div>
-                <div><i class="fa-solid fa-user-check"></i> <strong>Absent:</strong> ${item.Absenteeism}%</div>
                 <div><i class="fa-solid fa-shield-halved"></i> <strong>Incidents:</strong> ${item.IncidentRate}</div>
             </div>
         `;
